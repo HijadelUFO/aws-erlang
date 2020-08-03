@@ -166,16 +166,6 @@ create_data_source_from_r_d_s(Client, Input, Options)
 %% manipulated; for example, will it be combined with another variable or
 %% will it be split apart into word combinations? The recipe provides answers
 %% to these questions.
-%%
-%% <?oxy_insert_start author="laurama" timestamp="20160406T153842-0700">You
-%% can't change an existing datasource, but you can copy and modify the
-%% settings from an existing Amazon Redshift datasource to create a new
-%% datasource. To do so, call <code>GetDataSource</code> for an existing
-%% datasource and copy the values to a <code>CreateDataSource</code> call.
-%% Change the settings that you want to change and make sure that all
-%% required fields have the appropriate values.
-%%
-%% <?oxy_insert_end>
 create_data_source_from_redshift(Client, Input)
   when is_map(Client), is_map(Input) ->
     create_data_source_from_redshift(Client, Input, []).
