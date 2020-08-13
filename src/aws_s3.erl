@@ -223,12 +223,12 @@ abort_multipart_upload(Client, Bucket, Key, Input0, Options) ->
     Method = delete,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = 204,
-    
+
     HeadersMapping = [
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -336,12 +336,12 @@ complete_multipart_upload(Client, Bucket, Key, Input0, Options) ->
     Method = post,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -543,7 +543,7 @@ copy_object(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-copy-source-if-modified-since">>, <<"CopySourceIfModifiedSince">>},
                        {<<"Content-Language">>, <<"ContentLanguage">>},
@@ -581,7 +581,7 @@ copy_object(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-server-side-encryption-context">>, <<"SSEKMSEncryptionContext">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -717,7 +717,7 @@ create_bucket(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-acl">>, <<"ACL">>},
                        {<<"x-amz-grant-full-control">>, <<"GrantFullControl">>},
@@ -728,7 +728,7 @@ create_bucket(Client, Bucket, Input0, Options) ->
                        {<<"x-amz-bucket-object-lock-enabled">>, <<"ObjectLockEnabledForBucket">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -981,7 +981,7 @@ create_multipart_upload(Client, Bucket, Key, Input0, Options) ->
     Method = post,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?uploads"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-acl">>, <<"ACL">>},
                        {<<"Cache-Control">>, <<"CacheControl">>},
@@ -1009,7 +1009,7 @@ create_multipart_upload(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-website-redirect-location">>, <<"WebsiteRedirectLocation">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -1039,7 +1039,7 @@ create_multipart_upload(Client, Bucket, Key, Input0, Options) ->
 %% delete markers) in the bucket must be deleted before the bucket itself can
 %% be deleted.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li>
 %%
@@ -1104,7 +1104,7 @@ delete_bucket_analytics_configuration(Client, Bucket, Input0, Options) ->
 %% Cross-Origin Resource Sharing</a> in the <i>Amazon Simple Storage Service
 %% Developer Guide</i>.
 %%
-%% <p class="title"> <b>Related Resources:</b>
+%% <p class="title"> <b>Related Resources:</b> </p>
 %%
 %% <ul> <li>
 %%
@@ -1138,7 +1138,7 @@ delete_bucket_cors(Client, Bucket, Input0, Options) ->
 %% Access Permissions to your Amazon S3 Resources</a> in the <i>Amazon Simple
 %% Storage Service Developer Guide</i>.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>PutBucketEncryption</a>
 %%
@@ -1436,14 +1436,14 @@ delete_object(Client, Bucket, Key, Input0, Options) ->
     Method = delete,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = 204,
-    
+
     HeadersMapping = [
                        {<<"x-amz-bypass-governance-retention">>, <<"BypassGovernanceRetention">>},
                        {<<"x-amz-mfa">>, <<"MFA">>},
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -1563,14 +1563,14 @@ delete_objects(Client, Bucket, Input0, Options) ->
     Method = post,
     Path = ["/", http_uri:encode(Bucket), "?delete"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-bypass-governance-retention">>, <<"BypassGovernanceRetention">>},
                        {<<"x-amz-mfa">>, <<"MFA">>},
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -1651,7 +1651,7 @@ delete_public_access_block(Client, Bucket, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
 %% Acceleration</a> in the Amazon Simple Storage Service Developer Guide.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>PutBucketAccelerateConfiguration</a>
 %%
@@ -1673,7 +1673,7 @@ get_bucket_accelerate_configuration(Client, Bucket, Options)
 %% permission is granted to the anonymous user, you can return the ACL of the
 %% bucket without using an authorization header.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li>
 %%
@@ -1707,7 +1707,7 @@ get_bucket_acl(Client, Bucket, Options)
 %% S3 Analytics – Storage Class Analysis</a> in the <i>Amazon Simple Storage
 %% Service Developer Guide</i>.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li>
 %%
@@ -2447,7 +2447,7 @@ get_object(Client, Bucket, Key, IfMatch, IfModifiedSince, IfNoneMatch, IfUnmodif
         {<<"x-amz-server-side-encryption-customer-key-MD5">>, SSECustomerKeyMD5}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     case request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -2524,7 +2524,7 @@ get_object_acl(Client, Bucket, Key, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     case request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -2559,7 +2559,7 @@ get_object_legal_hold(Client, Bucket, Key, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode).
 
 %% @doc Gets the Object Lock configuration for a bucket. The rule specified
@@ -2593,7 +2593,7 @@ get_object_retention(Client, Bucket, Key, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode).
 
 %% @doc Returns the tag-set of an object. You send the GET request against
@@ -2674,7 +2674,7 @@ get_object_torrent(Client, Bucket, Key, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     case request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -2853,7 +2853,7 @@ head_object(Client, Bucket, Key, Input0, Options) ->
     Method = head,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"If-Match">>, <<"IfMatch">>},
                        {<<"If-Modified-Since">>, <<"IfModifiedSince">>},
@@ -2866,7 +2866,7 @@ head_object(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-server-side-encryption-customer-key-MD5">>, <<"SSECustomerKeyMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -3183,7 +3183,7 @@ list_objects(Client, Bucket, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode).
 
 %% @doc Returns some or all (up to 1,000) of the objects in a bucket. You can
@@ -3232,7 +3232,7 @@ list_objects_v2(Client, Bucket, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode).
 
 %% @doc Lists the parts that have been uploaded for a specific multipart
@@ -3283,7 +3283,7 @@ list_parts(Client, Bucket, Key, RequestPayer, Options)
         {<<"x-amz-request-payer">>, RequestPayer}
       ],
     Headers = [H || {_, V} = H <- Headers0, V =/= undefined],
-    
+
     case request(Client, get, Path, Headers, undefined, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -3500,7 +3500,7 @@ put_bucket_accelerate_configuration(Client, Bucket, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions
 %% and Endpoints</a> in the AWS General Reference.
 %%
-%% </note> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </note> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>CreateBucket</a>
 %%
@@ -3515,7 +3515,7 @@ put_bucket_acl(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?acl"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-acl">>, <<"ACL">>},
                        {<<"Content-MD5">>, <<"ContentMD5">>},
@@ -3526,7 +3526,7 @@ put_bucket_acl(Client, Bucket, Input0, Options) ->
                        {<<"x-amz-grant-write-acp">>, <<"GrantWriteACP">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Sets an analytics configuration for the bucket (specified by the
@@ -3560,7 +3560,7 @@ put_bucket_acl(Client, Bucket, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
 %% Access Permissions to Your Amazon S3 Resources</a>.
 %%
-%% <p class="title"> <b>Special Errors</b>
+%% <p class="title"> <b>Special Errors</b> </p>
 %%
 %% <ul> <li> <ul> <li> <i>HTTP Error: HTTP 400 Bad Request</i>
 %%
@@ -3583,7 +3583,7 @@ put_bucket_acl(Client, Bucket, Input0, Options) ->
 %% do not have the s3:PutAnalyticsConfiguration bucket permission to set the
 %% configuration on the bucket.</i>
 %%
-%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li>
 %%
@@ -3644,7 +3644,7 @@ put_bucket_analytics_configuration(Client, Bucket, Input0, Options) ->
 %% Cross-Origin Resource Sharing</a> in the <i>Amazon Simple Storage Service
 %% Developer Guide</i>.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetBucketCors</a>
 %%
@@ -3659,12 +3659,12 @@ put_bucket_cors(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?cors"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc This implementation of the <code>PUT</code> operation uses the
@@ -3692,7 +3692,7 @@ put_bucket_cors(Client, Bucket, Input0, Options) ->
 %% Access Permissions to Your Amazon S3 Resources</a> in the Amazon Simple
 %% Storage Service Developer Guide.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetBucketEncryption</a>
 %%
@@ -3705,12 +3705,12 @@ put_bucket_encryption(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?encryption"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc This implementation of the <code>PUT</code> operation adds an
@@ -3749,22 +3749,22 @@ put_bucket_encryption(Client, Bucket, Input0, Options) ->
 %% Access Permissions to Your Amazon S3 Resources</a> in the Amazon Simple
 %% Storage Service Developer Guide.
 %%
-%% <p class="title"> <b>Special Errors</b>
+%% <p class="title"> <b>Special Errors</b> </p>
 %%
-%% <ul> <li> <p class="title"> <b>HTTP 400 Bad Request Error</b>
+%% <ul> <li> <p class="title"> <b>HTTP 400 Bad Request Error</b> </p>
 %%
 %% <ul> <li> <i>Code:</i> InvalidArgument
 %%
 %% </li> <li> <i>Cause:</i> Invalid Argument
 %%
-%% </li> </ul> </li> <li> <p class="title"> <b>HTTP 400 Bad Request Error</b>
+%% </li> </ul> </li> <li> <p class="title"> <b>HTTP 400 Bad Request Error</b> </p>
 %%
 %% <ul> <li> <i>Code:</i> TooManyConfigurations
 %%
 %% </li> <li> <i>Cause:</i> You are attempting to create a new configuration
 %% but have already reached the 1,000-configuration limit.
 %%
-%% </li> </ul> </li> <li> <p class="title"> <b>HTTP 403 Forbidden Error</b>
+%% </li> </ul> </li> <li> <p class="title"> <b>HTTP 403 Forbidden Error</b> </p>
 %%
 %% <ul> <li> <i>Code:</i> AccessDenied
 %%
@@ -3772,7 +3772,7 @@ put_bucket_encryption(Client, Bucket, Input0, Options) ->
 %% you do not have the <code>s3:PutInventoryConfiguration</code> bucket
 %% permission to set the configuration on the bucket.
 %%
-%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetBucketInventoryConfiguration</a>
 %%
@@ -3832,7 +3832,7 @@ put_bucket_inventory_configuration(Client, Bucket, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#lifecycle-configuration-examples">Examples
 %% of Lifecycle Configuration</a>.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetBucketLifecycle</a>(Deprecated)
 %%
@@ -3861,12 +3861,12 @@ put_bucket_lifecycle(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?lifecycle"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Creates a new lifecycle configuration for the bucket or replaces an
@@ -4021,12 +4021,12 @@ put_bucket_logging(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?logging"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Sets a metrics configuration (specified by the metrics configuration
@@ -4086,12 +4086,12 @@ put_bucket_notification(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?notification"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Enables notifications of specified events for a bucket. For more
@@ -4198,13 +4198,13 @@ put_bucket_policy(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?policy"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-confirm-remove-self-bucket-access">>, <<"ConfirmRemoveSelfBucketAccess">>},
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Creates a replication configuration or replaces an existing one. For
@@ -4278,13 +4278,13 @@ put_bucket_replication(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?replication"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>},
                        {<<"x-amz-bucket-object-lock-token">>, <<"Token">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Sets the request payment configuration for a bucket. By default, the
@@ -4309,12 +4309,12 @@ put_bucket_request_payment(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?requestPayment"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Sets the tags for a bucket.
@@ -4384,12 +4384,12 @@ put_bucket_tagging(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?tagging"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Sets the versioning state of an existing bucket. To set the
@@ -4423,7 +4423,7 @@ put_bucket_tagging(Client, Bucket, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle
 %% and Versioning</a>.
 %%
-%% </important> <p class="title"> <b>Related Resources</b>
+%% </important> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>CreateBucket</a>
 %%
@@ -4438,13 +4438,13 @@ put_bucket_versioning(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?versioning"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>},
                        {<<"x-amz-mfa">>, <<"MFA">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Sets the configuration of the website that is specified in the
@@ -4524,12 +4524,12 @@ put_bucket_website(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?website"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Adds an object to a bucket. You must have WRITE permissions on a
@@ -4601,7 +4601,7 @@ put_bucket_website(Client, Bucket, Input0, Options) ->
 %% Objects to Versioning Enabled Buckets</a>. For information about returning
 %% the versioning state of a bucket, see <a>GetBucketVersioning</a>.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>CopyObject</a>
 %%
@@ -4614,7 +4614,7 @@ put_object(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-acl">>, <<"ACL">>},
                        {<<"Cache-Control">>, <<"CacheControl">>},
@@ -4644,7 +4644,7 @@ put_object(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-website-redirect-location">>, <<"WebsiteRedirectLocation">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -4809,7 +4809,7 @@ put_object(Client, Bucket, Key, Input0, Options) ->
 %% sets the ACL of the current version of an object. To set the ACL of a
 %% different version, use the <code>versionId</code> subresource.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>CopyObject</a>
 %%
@@ -4822,7 +4822,7 @@ put_object_acl(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?acl"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-acl">>, <<"ACL">>},
                        {<<"Content-MD5">>, <<"ContentMD5">>},
@@ -4834,7 +4834,7 @@ put_object_acl(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -4855,7 +4855,7 @@ put_object_acl(Client, Bucket, Key, Input0, Options) ->
 
 %% @doc Applies a Legal Hold configuration to the specified object.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
@@ -4868,13 +4868,13 @@ put_object_legal_hold(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?legal-hold"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>},
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -4900,7 +4900,7 @@ put_object_legal_hold(Client, Bucket, Key, Input0, Options) ->
 %% <note> <code>DefaultRetention</code> requires either Days or Years. You
 %% can't specify both at the same time.
 %%
-%% </note> <p class="title"> <b>Related Resources</b>
+%% </note> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
@@ -4913,14 +4913,14 @@ put_object_lock_configuration(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?object-lock"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>},
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>},
                        {<<"x-amz-bucket-object-lock-token">>, <<"Token">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -4941,7 +4941,7 @@ put_object_lock_configuration(Client, Bucket, Input0, Options) ->
 
 %% @doc Places an Object Retention configuration on an object.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
@@ -4954,14 +4954,14 @@ put_object_retention(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?retention"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-bypass-governance-retention">>, <<"BypassGovernanceRetention">>},
                        {<<"Content-MD5">>, <<"ContentMD5">>},
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -5006,9 +5006,9 @@ put_object_retention(Client, Bucket, Key, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
 %% Tagging</a>.
 %%
-%% <p class="title"> <b>Special Errors</b>
+%% <p class="title"> <b>Special Errors</b> </p>
 %%
-%% <ul> <li> <p class="title"> <b/>
+%% <ul> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: InvalidTagError </i>
 %%
@@ -5018,7 +5018,7 @@ put_object_retention(Client, Bucket, Key, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
 %% Tagging</a>.</i>
 %%
-%% </li> </ul> </li> <li> <p class="title"> <b/>
+%% </li> </ul> </li> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: MalformedXMLError </i>
 %%
@@ -5034,7 +5034,7 @@ put_object_retention(Client, Bucket, Key, Input0, Options) ->
 %% </li> <li> <i>Cause: The service was unable to apply the provided tag to
 %% the object.</i>
 %%
-%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetObjectTagging</a>
 %%
@@ -5045,12 +5045,12 @@ put_object_tagging(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?tagging"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -5089,7 +5089,7 @@ put_object_tagging(Client, Bucket, Key, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The
 %% Meaning of "Public"</a>.
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetPublicAccessBlock</a>
 %%
@@ -5108,12 +5108,12 @@ put_public_access_block(Client, Bucket, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "?publicAccessBlock"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-MD5">>, <<"ContentMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Restores an archived copy of an object back into Amazon S3
@@ -5326,9 +5326,9 @@ put_public_access_block(Client, Bucket, Input0, Options) ->
 %% </li> <li> If the object copy is previously restored, Amazon S3 returns
 %% <code>200 OK</code> in the response.
 %%
-%% </li> </ul> <p class="title"> <b>Special Errors</b>
+%% </li> </ul> <p class="title"> <b>Special Errors</b> </p>
 %%
-%% <ul> <li> <p class="title"> <b/>
+%% <ul> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: RestoreAlreadyInProgress</i>
 %%
@@ -5339,7 +5339,7 @@ put_public_access_block(Client, Bucket, Input0, Options) ->
 %%
 %% </li> <li> <i>SOAP Fault Code Prefix: Client</i>
 %%
-%% </li> </ul> </li> <li> <p class="title"> <b/>
+%% </li> </ul> </li> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: GlacierExpeditedRetrievalNotAvailable</i>
 %%
@@ -5352,7 +5352,7 @@ put_public_access_block(Client, Bucket, Input0, Options) ->
 %%
 %% </li> <li> <i>SOAP Fault Code Prefix: N/A</i>
 %%
-%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>PutBucketLifecycleConfiguration</a>
 %%
@@ -5370,12 +5370,12 @@ restore_object(Client, Bucket, Key, Input0, Options) ->
     Method = post,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?restore"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-request-payer">>, <<"RequestPayer">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -5489,7 +5489,7 @@ restore_object(Client, Bucket, Key, Input0, Options) ->
 %% For a list of special errors for this operation, see
 %% <a>SelectObjectContentErrorCodeList</a>
 %%
-%% <p class="title"> <b>Related Resources</b>
+%% <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>GetObject</a>
 %%
@@ -5504,14 +5504,14 @@ select_object_content(Client, Bucket, Key, Input0, Options) ->
     Method = post,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), "?select&select-type=2"],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-server-side-encryption-customer-algorithm">>, <<"SSECustomerAlgorithm">>},
                        {<<"x-amz-server-side-encryption-customer-key">>, <<"SSECustomerKey">>},
                        {<<"x-amz-server-side-encryption-customer-key-MD5">>, <<"SSECustomerKeyMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode).
 
 %% @doc Uploads a part in a multipart upload.
@@ -5585,9 +5585,9 @@ select_object_content(Client, Bucket, Key, Input0, Options) ->
 %%
 %% </li> <li> x-amz-server-side​-encryption​-customer-key-MD5
 %%
-%% </li> </ul> <p class="title"> <b>Special Errors</b>
+%% </li> </ul> <p class="title"> <b>Special Errors</b> </p>
 %%
-%% <ul> <li> <p class="title"> <b/>
+%% <ul> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: NoSuchUpload</i>
 %%
@@ -5599,7 +5599,7 @@ select_object_content(Client, Bucket, Key, Input0, Options) ->
 %%
 %% </li> <li> <i>SOAP Fault Code Prefix: Client</i>
 %%
-%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>CreateMultipartUpload</a>
 %%
@@ -5618,7 +5618,7 @@ upload_part(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"Content-Length">>, <<"ContentLength">>},
                        {<<"Content-MD5">>, <<"ContentMD5">>},
@@ -5628,7 +5628,7 @@ upload_part(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-server-side-encryption-customer-key-MD5">>, <<"SSECustomerKeyMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -5745,9 +5745,9 @@ upload_part(Client, Bucket, Key, Input0, Options) ->
 %%
 %% <code>x-amz-copy-source: /bucket/object?versionId=version id</code>
 %%
-%% <p class="title"> <b>Special Errors</b>
+%% <p class="title"> <b>Special Errors</b> </p>
 %%
-%% <ul> <li> <p class="title"> <b/>
+%% <ul> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: NoSuchUpload</i>
 %%
@@ -5757,7 +5757,7 @@ upload_part(Client, Bucket, Key, Input0, Options) ->
 %%
 %% </li> <li> <i>HTTP Status Code: 404 Not Found</i>
 %%
-%% </li> </ul> </li> <li> <p class="title"> <b/>
+%% </li> </ul> </li> <li> <p class="title"> <b/> </p>
 %%
 %% <ul> <li> <i>Code: InvalidRequest</i>
 %%
@@ -5766,7 +5766,7 @@ upload_part(Client, Bucket, Key, Input0, Options) ->
 %%
 %% </li> <li> <i>HTTP Status Code: 400 Bad Request</i>
 %%
-%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b>
+%% </li> </ul> </li> </ul> <p class="title"> <b>Related Resources</b> </p>
 %%
 %% <ul> <li> <a>CreateMultipartUpload</a>
 %%
@@ -5787,7 +5787,7 @@ upload_part_copy(Client, Bucket, Key, Input0, Options) ->
     Method = put,
     Path = ["/", http_uri:encode(Bucket), "/", aws_util:encode_uri(Key, true), ""],
     SuccessStatusCode = undefined,
-    
+
     HeadersMapping = [
                        {<<"x-amz-copy-source">>, <<"CopySource">>},
                        {<<"x-amz-copy-source-if-match">>, <<"CopySourceIfMatch">>},
@@ -5804,7 +5804,7 @@ upload_part_copy(Client, Bucket, Key, Input0, Options) ->
                        {<<"x-amz-server-side-encryption-customer-key-MD5">>, <<"SSECustomerKeyMD5">>}
                      ],
     {Headers, Input} = aws_request:build_headers(HeadersMapping, Input0),
-    
+
     case request(Client, Method, Path, Headers, Input, Options, SuccessStatusCode) of
       {ok, Body0, {_, ResponseHeaders, _} = Response} ->
         ResponseHeadersParams =
@@ -5851,6 +5851,7 @@ request(Client, Method, Path, Headers0, Input, Options, SuccessStatusCode) ->
     Payload = encode_payload(Input),
     MethodBin = aws_request:method_to_binary(Method),
     SignedHeaders = aws_request:sign_request(Client1, MethodBin, URL, Headers1, Payload),
+    erlang:display(URL),
     Response = hackney:request(Method, URL, SignedHeaders, Payload, Options),
     handle_response(Response, SuccessStatusCode).
 

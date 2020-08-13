@@ -933,7 +933,7 @@ get_conformance_pack_compliance_summary(Client, Input, Options)
 %% total number of resources that AWS Config is recording in this region for
 %% your AWS account.
 %%
-%% <p class="title"> <b>Example</b></p>
+%% <p class="title"> <b>Example</b> </p>
 %%
 %% <ol> <li> AWS Config is recording three resource types in the US East
 %% (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3

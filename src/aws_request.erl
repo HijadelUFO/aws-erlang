@@ -24,7 +24,7 @@ sign_request(Client, Method, URL, Headers, Body) ->
 
 %% @doc Build request headers based on a list key-value pairs
 %% representing the mappings from param names to header names and a
-%% map qith the `params`.
+%% map qith the `params'.
 build_headers(ParamsHeadersMapping, Params0)
   when is_list(ParamsHeadersMapping),
        is_map(Params0) ->

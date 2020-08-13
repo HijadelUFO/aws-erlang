@@ -287,7 +287,7 @@ put_telemetry_records(Client, Input0, Options) ->
 %% href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">AWS
 %% X-Ray Segment Documents</a> in the <i>AWS X-Ray Developer Guide</i>.
 %%
-%% <p class="title"> <b>Required Segment Document Fields</b>
+%% <p class="title"> <b>Required Segment Document Fields</b> </p>
 %%
 %% <ul> <li> <code>name</code> - The name of the service that handled the
 %% request.
@@ -318,7 +318,7 @@ put_telemetry_records(Client, Input0, Options) ->
 %% </li> </ul> A <code>trace_id</code> consists of three numbers separated by
 %% hyphens. For example, 1-58406520-a006649127e371903a2de979. This includes:
 %%
-%% <p class="title"> <b>Trace ID Format</b>
+%% <p class="title"> <b>Trace ID Format</b> </p>
 %%
 %% <ul> <li> The version number, i.e. <code>1</code>.
 %%

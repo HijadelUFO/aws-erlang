@@ -221,7 +221,7 @@ complete_migration(Client, Input, Options)
 %%
 %% </important> You could receive the following error messages.
 %%
-%% <p class="title"> <b>Error Messages</b>
+%% <p class="title"> <b>Error Messages</b> </p>
 %%
 %% <ul> <li> <b>Error Message:</b> The S3 bucket %s is outside of the region.
 %%
@@ -966,7 +966,7 @@ start_migration(Client, Input, Options)
 %% test automatic failover on a specified node group (called shard in the
 %% console) in a replication group (called cluster in the console).
 %%
-%% <p class="title"> <b>Note the following</b>
+%% <p class="title"> <b>Note the following</b> </p>
 %%
 %% <ul> <li> A customer can use this operation to test automatic failover on
 %% up to 5 shards (called node groups in the ElastiCache API and AWS CLI) in
